@@ -1,8 +1,6 @@
 package com.cyriii.model;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.cyriii.enums.UserSexEnum;
 import com.cyriii.enums.UserTypeEnum;
 import lombok.Data;
@@ -31,7 +29,6 @@ public class User {
 
     private Date updateTime;
 
-    @TableLogic
     private Integer deleted;
 
 }

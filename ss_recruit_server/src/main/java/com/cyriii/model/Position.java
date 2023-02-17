@@ -1,14 +1,23 @@
 package com.cyriii.model;
 
-import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.util.Date;
 
+/**
+ * 招聘信息
+ */
 @Data
 public class Position {
 
+    @TableId
     private Long id;
+
+    /**
+     * 所属公司id
+     */
+    private Long companyId;
 
     /**
      * 标题
@@ -31,6 +40,11 @@ public class Position {
     private Integer salaryMax;
 
     /**
+     * 创建人id
+     */
+    private Long createUserId;
+
+    /**
      * 创建时间
      */
     private Date createTime;
@@ -48,7 +62,6 @@ public class Position {
     /**
      * 是否删除
      */
-    @TableLogic
     private Integer deleted;
 
 }

@@ -27,7 +27,6 @@ public class R<T> {
         SUCCESS(0, "成功"),
         ERROR(-1, "失败");
 
-
         private Integer code;
 
         private String desc;

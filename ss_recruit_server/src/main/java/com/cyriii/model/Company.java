@@ -6,37 +6,38 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * 轮播图信息
+ * 公司信息
  */
 @Data
-public class Carousel {
+public class Company {
+
     @TableId
     private Long id;
 
     /**
-     * 图片名称
+     * 公司名称
      */
     private String name;
 
     /**
-     * 图片地址
+     * 公司logo地址
      */
-    private String url;
+    private String logoUrl;
 
     /**
-     * 备注
+     * 公司简介
      */
-    private String memo;
+    private String description;
 
     /**
-     * 是否展示
+     * 公司地址
      */
-    private Boolean show;
+    private String address;
 
     /**
-     * 排序
+     * 状态
      */
-    private Integer sort;
+    private String status;
 
     /**
      * 创建人id
@@ -44,17 +45,18 @@ public class Carousel {
     private Long createUserId;
 
     /**
-     * 创建时间
+     * 创建日期
      */
     private Date createTime;
 
     /**
-     * 更新时间
+     * 更新日期
      */
     private Date updateTime;
 
     /**
-     * 是否删除
+     * 逻辑删除标志位
      */
     private Integer deleted;
+
 }

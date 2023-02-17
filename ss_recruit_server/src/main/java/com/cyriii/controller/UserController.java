@@ -6,6 +6,7 @@ import com.cyriii.dto.UserPageDTO;
 import com.cyriii.dto.UserUpdateDTO;
 import com.cyriii.service.UserService;
 import com.cyriii.vo.UserVO;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -19,13 +20,15 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Operation(summary = "获取用户信息", description = "需要在header中设置ss-token")
     @PostMapping("/info")
-    public R getUserById() {
+    public R<UserVO> getUserById() {
         Long userId = StpUtil.getLoginIdAsLong();
         UserVO userVO = userService.getById(userId);
         return R.ok(userVO);
     }
 
+    @Operation(summary = "更新用户信息", description = "需要在header中设置ss-token")
     @PostMapping("/update")
     public R updateUser(UserUpdateDTO userUpdateDTO) {
         userService.updateUser(userUpdateDTO);
@@ -33,8 +36,9 @@ public class UserController {
     }
 
 
+    @Operation(summary = "用户信息列表（分页）")
     @PostMapping("/page")
-    public R page(@Validated @RequestBody UserPageDTO userPageDTO) {
+    public R<UserVO> page(@Validated @RequestBody UserPageDTO userPageDTO) {
         return R.ok(userService.page(userPageDTO));
     }
 

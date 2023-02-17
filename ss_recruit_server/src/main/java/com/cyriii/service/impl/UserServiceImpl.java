@@ -34,8 +34,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         Page<User> page = this.lambdaQuery()
                 .orderByDesc(User::getCreateTime)
                 .page(new Page<>(userPageDTO.getPageNo(), userPageDTO.getPageSize()));
-        IPage<UserVO> convert = page.convert(item -> BeanUtil.copyProperties(item, UserVO.class));
-
-        return convert;
+        return page.convert(item -> BeanUtil.copyProperties(item, UserVO.class));
     }
 }

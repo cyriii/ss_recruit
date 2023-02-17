@@ -5,6 +5,9 @@ import lombok.Data;
 
 import java.util.Date;
 
+/**
+ * 岗位分类信息
+ */
 @Data
 public class Category {
 
@@ -34,6 +37,11 @@ public class Category {
     private Integer sort;
 
     /**
+     * 创建人id
+     */
+    private Long createUserId;
+
+    /**
      * 创建时间
      */
     private Date createTime;
@@ -46,7 +54,6 @@ public class Category {
     /**
      * 逻辑删除
      */
-    @TableLogic
     private Integer deleted;
 
 
