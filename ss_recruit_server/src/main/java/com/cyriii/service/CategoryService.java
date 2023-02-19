@@ -16,4 +16,6 @@ public interface CategoryService extends IService<Category> {
     void update(CategoryUpdateDTO categoryUpdateDTO);
 
     void delById(Long id);
+
+    List<CategoryVO> allListWithTree();
 }

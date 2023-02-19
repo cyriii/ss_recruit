@@ -1,5 +1,7 @@
 package com.cyriii.model;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
@@ -26,16 +28,18 @@ public class Carousel {
     /**
      * 备注
      */
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private String memo;
 
     /**
      * 是否展示
      */
-    private Boolean show;
+    private Integer display;
 
     /**
      * 排序
      */
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Integer sort;
 
     /**

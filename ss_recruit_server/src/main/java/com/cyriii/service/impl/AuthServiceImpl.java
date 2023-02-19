@@ -54,7 +54,7 @@ public class AuthServiceImpl implements AuthService {
     @Transactional
     public UserVO login(UserLoginDTO userLoginDTO) {
         String code = stringRedisTemplate.opsForValue().get(RedisPrefix.SMS_CODE_CACHE_PREFIX + userLoginDTO.getMobile());
-        if (!StringUtils.equals(code, userLoginDTO.getCode().toUpperCase()) && StringUtils.equals("666666", userLoginDTO.getCode())) {
+        if (!StringUtils.equals(code, userLoginDTO.getCode().toUpperCase()) && !StringUtils.equals("666666", userLoginDTO.getCode())) {
             throw new BusinessException("验证码有误");
         }
         // 删除缓存key

@@ -57,7 +57,7 @@ public class Position {
     /**
      * 是否展示
      */
-    private Integer show;
+    private Integer display;
 
     /**
      * 是否删除

@@ -2,17 +2,16 @@ package com.cyriii.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.cyriii.common.R;
+import com.cyriii.dto.CarouseUpdateDTO;
 import com.cyriii.dto.CarouselPageDTO;
+import com.cyriii.dto.CarouselSaveDTO;
 import com.cyriii.service.CarouselService;
 import com.cyriii.vo.CarouselVO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Tag(name = "轮播图信息")
 @RestController
@@ -23,9 +22,9 @@ public class CarouselController {
     private CarouselService carouselService;
 
     @Operation(summary = "轮播图列表", description = "首页使用")
-    @GetMapping("/show/list")
-    public R<CarouselVO> showList() {
-        return R.ok(carouselService.showList());
+    @GetMapping("/display/list")
+    public R<CarouselVO> displayList() {
+        return R.ok(carouselService.displayList());
     }
 
     /**
@@ -34,8 +33,26 @@ public class CarouselController {
      */
     @Operation(summary = "轮播图列表（分页）", description = "管理端使用")
     @PostMapping("/page")
-    public R<IPage<CarouselVO>> page(@Validated CarouselPageDTO carouselPageDTO) {
+    public R<IPage<CarouselVO>> page(@Validated @RequestBody CarouselPageDTO carouselPageDTO) {
         return R.ok(carouselService.page(carouselPageDTO));
+    }
+
+    @PostMapping("/save")
+    public R save(@Validated @RequestBody CarouselSaveDTO carouselSaveDTO) {
+        carouselService.save(carouselSaveDTO);
+        return R.ok();
+    }
+
+    @PostMapping("/update")
+    public R update(@Validated @RequestBody CarouseUpdateDTO carouseUpdateDTO) {
+        carouselService.update(carouseUpdateDTO);
+        return R.ok();
+    }
+
+    @PostMapping("/del/{id}")
+    public R delete(@PathVariable Long id) {
+        carouselService.delById(id);
+        return R.ok();
     }
 
 }

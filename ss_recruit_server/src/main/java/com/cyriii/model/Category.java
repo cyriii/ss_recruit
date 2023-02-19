@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.Date;
 
 /**
- * 岗位分类信息
+ * 行业分类信息
  */
 @Data
 public class Category {
@@ -27,14 +27,19 @@ public class Category {
     /**
      * 层级
      */
-    @TableField(fill = FieldFill.UPDATE)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Integer level;
 
     /**
      * 排序
      */
-    @TableField(fill = FieldFill.UPDATE)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Integer sort;
+
+    /**
+     * 是否展示
+     */
+    private Integer display;
 
     /**
      * 创建人id

@@ -1,19 +1,16 @@
 package com.cyriii.dto;
 
-import com.cyriii.enums.UserSexEnum;
+import com.cyriii.enums.UserStatusEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-public class UserUpdateDTO {
+public class UserUpdateStatusDTO {
 
     @Schema(description = "用户id")
     private Long id;
 
-    private String nickName;
-
-    private String header;
-
-    private UserSexEnum sex;
+    @Schema(description = "用户状态")
+    private UserStatusEnum userStatusEnum;
 
 }

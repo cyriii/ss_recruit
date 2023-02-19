@@ -2,6 +2,7 @@ package com.cyriii.model;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.cyriii.enums.UserSexEnum;
+import com.cyriii.enums.UserStatusEnum;
 import com.cyriii.enums.UserTypeEnum;
 import lombok.Data;
 
@@ -23,7 +24,7 @@ public class User {
 
     private UserSexEnum sex;
 
-    private Integer status;
+    private UserStatusEnum status;
 
     private Date createTime;
 

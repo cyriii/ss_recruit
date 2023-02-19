@@ -31,6 +31,4 @@ public class UserLoginDTO {
     @Length(min = 6, max = 6, message = "验证码有误")
     private String code;
 
-
-
 }

@@ -1,6 +1,7 @@
 package com.cyriii.model;
 
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.cyriii.enums.CompanyStatusEnum;
 import lombok.Data;
 
 import java.util.Date;
@@ -20,6 +21,11 @@ public class Company {
     private String name;
 
     /**
+     * 统一社会信用代码
+     */
+    private String companyCode;
+
+    /**
      * 公司logo地址
      */
     private String logoUrl;
@@ -35,9 +41,14 @@ public class Company {
     private String address;
 
     /**
+     * 城市id
+     */
+    private Long crityId;
+
+    /**
      * 状态
      */
-    private String status;
+    private CompanyStatusEnum status;
 
     /**
      * 创建人id

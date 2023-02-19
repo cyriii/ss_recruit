@@ -25,7 +25,17 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     @Override
     @Cacheable(value = "ss:recruit:category", key = "'tree'")
     public List<CategoryVO> listWithTree() {
-        List<Category> categories = this.lambdaQuery().list();
+        return this.listWithTree(1);
+    }
+
+    @Override
+    @Cacheable(value = "ss:recruit:category:all", key = "'tree'")
+    public List<CategoryVO> allListWithTree() {
+        return listWithTree(null);
+    }
+
+    private List<CategoryVO> listWithTree(Integer display) {
+        List<Category> categories = this.lambdaQuery().eq(Objects.nonNull(display), Category::getDisplay, display).orderByAsc(Category::getSort, Category::getName).list();
         List<CategoryVO> list = categories.stream().map(item -> BeanUtil.copyProperties(item, CategoryVO.class)).collect(Collectors.toList());
         // 父节点
         List<CategoryVO> rootList = list.stream().filter(item -> item.getPId().longValue() == 0).collect(Collectors.toList());
@@ -40,7 +50,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     }
 
     @Override
-    @CacheEvict(value = "ss:recruit:category", key = "'tree'")
+    @CacheEvict(value = "ss:recruit:category", allEntries = true)
     public void save(CategorySaveDTO categorySaveDTO) {
         // 查询同分类下是否存在该名称
 

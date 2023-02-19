@@ -4,6 +4,7 @@ import cn.dev33.satoken.stp.StpUtil;
 import com.cyriii.common.R;
 import com.cyriii.dto.UserPageDTO;
 import com.cyriii.dto.UserUpdateDTO;
+import com.cyriii.dto.UserUpdateStatusDTO;
 import com.cyriii.service.UserService;
 import com.cyriii.vo.UserVO;
 import io.swagger.v3.oas.annotations.Operation;
@@ -22,7 +23,7 @@ public class UserController {
 
     @Operation(summary = "获取用户信息", description = "需要在header中设置ss-token")
     @PostMapping("/info")
-    public R<UserVO> getUserById() {
+    public R<UserVO> getInfo() {
         Long userId = StpUtil.getLoginIdAsLong();
         UserVO userVO = userService.getById(userId);
         return R.ok(userVO);
@@ -30,7 +31,7 @@ public class UserController {
 
     @Operation(summary = "更新用户信息", description = "需要在header中设置ss-token")
     @PostMapping("/update")
-    public R updateUser(UserUpdateDTO userUpdateDTO) {
+    public R updateUser(@RequestBody UserUpdateDTO userUpdateDTO) {
         userService.updateUser(userUpdateDTO);
         return R.ok();
     }
@@ -42,4 +43,10 @@ public class UserController {
         return R.ok(userService.page(userPageDTO));
     }
 
+    @Operation(summary = "更新用户状态")
+    @PostMapping("/update/status")
+    public R updateStatus(@RequestBody UserUpdateStatusDTO userUpdateStatusDTO) {
+        userService.updateStatus(userUpdateStatusDTO);
+        return R.ok();
+    }
 }

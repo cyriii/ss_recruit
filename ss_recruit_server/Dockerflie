@@ -1,0 +1,12 @@
+FROM openjdk:21-jdk
+
+ENV JAR_PATH /opt/jar
+WORKDIR $JAR_PATH
+
+COPY ss_recruit.jar $JAR_PATH
+
+EXPOSE 18080
+
+ENTRYPOINT ["java", "-jar", "ss_recruit.jar"]
+
+

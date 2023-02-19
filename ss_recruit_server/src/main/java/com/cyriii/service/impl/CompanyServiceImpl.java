@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 public class CompanyServiceImpl extends ServiceImpl<CompanyMapper, Company> implements CompanyService {
 
     @Override
-    public List<CompanyVO> showList() {
+    public List<CompanyVO> displayList() {
         List<Company> list = this.lambdaQuery().eq(Company::getStatus, 1).orderByAsc(Company::getName).list();
         List<CompanyVO> companyVOS = list.stream().map(item -> BeanUtil.copyProperties(item, CompanyVO.class)).collect(Collectors.toList());
         return companyVOS;

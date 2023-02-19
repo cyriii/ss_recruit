@@ -2,18 +2,14 @@ package com.cyriii.enums;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
 import com.fasterxml.jackson.annotation.JsonValue;
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 
 @Getter
-public enum UserSexEnum {
+public enum CompanyStatusEnum {
+    WAIT("0", "待审批"),
+    PASS("1", "审批通过"),
+    REJECT("2", "审批驳回");
 
-    @Schema(description = "保密")
-    UNKNOW("0", "保密"),
-    @Schema(description = "男")
-    MAN("1", "男"),
-    @Schema(description = "女")
-    WOMAN("2", "女");
 
     @JsonValue
     @EnumValue
@@ -21,7 +17,8 @@ public enum UserSexEnum {
 
     private String desc;
 
-    UserSexEnum(String code, String desc) {
+
+    CompanyStatusEnum(String code, String desc) {
         this.code = code;
         this.desc = desc;
     }

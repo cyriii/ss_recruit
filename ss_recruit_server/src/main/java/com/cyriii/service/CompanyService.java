@@ -9,7 +9,7 @@ import com.cyriii.vo.CompanyVO;
 import java.util.List;
 
 public interface CompanyService extends IService<Company> {
-    List<CompanyVO> showList();
+    List<CompanyVO> displayList();
 
     IPage<CompanyVO> page(CompanyPageDTO companyPageDTO);
 }

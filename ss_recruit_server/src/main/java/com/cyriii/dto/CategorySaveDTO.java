@@ -2,6 +2,7 @@ package com.cyriii.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
@@ -12,7 +13,7 @@ public class CategorySaveDTO {
     private String name;
 
     @Schema(description = "父节点id")
-    @NotBlank(message = "父id不能为空")
+    @NotNull(message = "父id不能为空")
     private Long pId;
 
     @Schema(description = "当前层及")
@@ -20,5 +21,10 @@ public class CategorySaveDTO {
 
     @Schema(description = "排序字段")
     private Integer sort;
+
+
+    @Schema(description = "是否展示（0：否，1：是）")
+    @NotNull(message = "是否展示字段不能为空")
+    private Integer display;
 
 }
