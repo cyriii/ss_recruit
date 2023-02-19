@@ -1,6 +1,6 @@
 package com.cyriii.vo;
 
-import com.cyriii.enums.CompanyStatusEnum;
+import com.cyriii.enums.FlowStatusEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -44,7 +44,7 @@ public class CompanyVO {
      * 状态
      */
     @Schema(description = "公司状态")
-    private CompanyStatusEnum status;
+    private FlowStatusEnum status;
 
     @Schema(description = "城市id")
     private Long crityId;

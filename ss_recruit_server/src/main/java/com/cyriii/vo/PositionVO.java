@@ -1,4 +1,4 @@
-package com.cyriii.model;
+package com.cyriii.vo;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.cyriii.enums.FlowStatusEnum;
@@ -8,13 +8,10 @@ import lombok.Data;
 
 import java.util.Date;
 
-/**
- * 招聘信息
- */
 @Data
-public class Position {
+public class PositionVO {
 
-    @TableId
+
     private Long id;
 
     /**
@@ -28,12 +25,22 @@ public class Position {
     private Long companyId;
 
     /**
-     * 所属个人id
+     * 所属公司
+     */
+    private CompanyVO companyVO;
+
+    /**
+     * 所属用户id
      */
     private Long userId;
 
     /**
-     * 行业id
+     * 所属用户
+     */
+    private UserVO userVO;
+
+    /**
+     * 所属行业id
      */
     private Long categoryId;
 
@@ -98,23 +105,8 @@ public class Position {
     private Integer display;
 
     /**
-     * 创建人id
-     */
-    private Long createUserId;
-
-    /**
      * 创建时间
      */
     private Date createTime;
-
-    /**
-     * 更新时间
-     */
-    private Date updateTime;
-
-    /**
-     * 是否删除
-     */
-    private Integer deleted;
 
 }

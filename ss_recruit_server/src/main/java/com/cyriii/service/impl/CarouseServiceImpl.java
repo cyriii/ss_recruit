@@ -54,7 +54,7 @@ public class CarouseServiceImpl extends ServiceImpl<CarouselMapper, Carousel> im
     @Override
     public void update(CarouseUpdateDTO carouseUpdateDTO) {
         Carousel carousel = BeanUtil.copyProperties(carouseUpdateDTO, Carousel.class);
-        this.save(carousel);
+        this.updateById(carousel);
     }
 
     @Override

@@ -24,7 +24,7 @@ public class ResumeController {
         return R.ok(resumeService.getByUserId(userId));
     }
 
-    @Operation(summary = "个人简历新增/修改", description = "需要token")
+    @Operation(summary = "个人简历新增/修改", description = "前台进行修改")
     @PostMapping("/save")
     public R saveOrUpdate(@RequestBody ResumeSaveDTO resumeSaveDTO) {
         resumeService.save(resumeSaveDTO);

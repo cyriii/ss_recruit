@@ -5,11 +5,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
 
 @Getter
-public enum CompanyStatusEnum {
-    WAIT("0", "待审批"),
-    PASS("1", "审批通过"),
-    REJECT("2", "审批驳回");
-
+public enum PositionSourceEnum {
+    COMPANY("1", "公司"),
+    PEOPLE("2", "个人");
 
     @JsonValue
     @EnumValue
@@ -17,8 +15,7 @@ public enum CompanyStatusEnum {
 
     private String desc;
 
-
-    CompanyStatusEnum(String code, String desc) {
+    PositionSourceEnum(String code, String desc) {
         this.code = code;
         this.desc = desc;
     }

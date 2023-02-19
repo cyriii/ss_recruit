@@ -1,7 +1,7 @@
 package com.cyriii.model;
 
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.cyriii.enums.CompanyStatusEnum;
+import com.cyriii.enums.FlowStatusEnum;
 import lombok.Data;
 
 import java.util.Date;
@@ -48,7 +48,7 @@ public class Company {
     /**
      * 状态
      */
-    private CompanyStatusEnum status;
+    private FlowStatusEnum status;
 
     /**
      * 创建人id

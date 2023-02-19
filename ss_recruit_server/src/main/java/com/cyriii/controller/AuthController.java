@@ -27,7 +27,7 @@ public class AuthController {
         return R.ok();
     }
 
-    @Operation(summary = "用户登录接口")
+    @Operation(summary = "用户登录接口", description = "前台登录")
     @PostMapping("/login")
     public R login(@Validated @RequestBody UserLoginDTO userLoginDTO) {
         return R.ok(authService.login(userLoginDTO));

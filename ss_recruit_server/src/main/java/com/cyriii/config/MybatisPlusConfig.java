@@ -17,8 +17,6 @@ import javax.sql.DataSource;
 import java.time.LocalDateTime;
 
 @Configuration
-@ConditionalOnBean({DataSource.class})
-@ConditionalOnClass({SqlSessionFactory.class, SqlSessionFactoryBean.class})
 @EnableTransactionManagement
 public class MybatisPlusConfig implements MetaObjectHandler {
 

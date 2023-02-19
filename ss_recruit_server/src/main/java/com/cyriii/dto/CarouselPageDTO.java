@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class CarouselPageDTO extends PageDTO{
 
-    @Schema(description = "分类名称")
+    @Schema(description = "轮播图名称")
     private String name;
 
     @Schema(description = "显示状态", example = "1")
